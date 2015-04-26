@@ -4,6 +4,5 @@ group :test do
   gem "rake"
   gem "rspec"
   gem "serverspec"
-  gem "docker-api"
 end
 
