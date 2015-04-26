@@ -1,0 +1,16 @@
+# ref: https://circleci.com/docs/configuration
+
+machine:
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - docker build -t em .
+  override:
+    - docker run -v `pwd`:/build em bundle install -j4 --path vendor/bundle
+
+test:
+  override:
+    - docker run -v `pwd`:/build em bundle exec rake spec
+
