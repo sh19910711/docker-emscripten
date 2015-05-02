@@ -6,7 +6,8 @@ machine:
 
 dependencies:
   pre:
-    - docker build -t em .
+    - docker build -t em-core ./
+    - docker build -t em ./spec
   override:
     - docker run -v `pwd`:/build em bundle install -j4 --path vendor/bundle
 
